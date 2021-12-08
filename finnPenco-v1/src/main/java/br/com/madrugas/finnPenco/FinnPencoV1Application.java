@@ -1,4 +1,4 @@
-package br.com.madrugas.finnPencov1;
+package br.com.madrugas.finnPenco;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
