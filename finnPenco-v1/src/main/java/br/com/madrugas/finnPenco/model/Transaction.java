@@ -1,7 +1,7 @@
 package br.com.madrugas.finnPenco.model;
 
-import java.util.Date;
-
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,13 +17,50 @@ public class Transaction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String description;
-	private Date date;
+	private LocalDate date;
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cat_id", referencedColumnName = "id")
 	private Category category;
 	private String type;
-	private String value;
+	private BigDecimal value;
 	private String obs;
+	
+	
+	public Transaction(Integer id, String description, Category category, String type, BigDecimal value,
+			String obs) {
+		this.id = id;
+		this.description = description;
+		this.date = LocalDate.now();
+		this.category = category;
+		this.type = type;
+		this.value = value;
+		this.obs = obs;
+	}
+	
+	public Transaction() {}
+	
+	public Integer getId() {
+		return id;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public LocalDate getDate() {
+		return date;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public String getType() {
+		return type;
+	}
+	public BigDecimal getValue() {
+		return value;
+	}
+	public String getObs() {
+		return obs;
+	}
+	
 	
 	
 }
