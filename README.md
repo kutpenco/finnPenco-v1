@@ -1,2 +1,2 @@
 # finnPenco-v1
-Personal Finantial Controller
+Personal Financial Controller
