@@ -26,9 +26,8 @@ public class Transaction {
 	private String obs;
 	
 	
-	public Transaction(Integer id, String description, Category category, String type, BigDecimal value,
+	public Transaction(String description, Category category, String type, BigDecimal value,
 			String obs) {
-		this.id = id;
 		this.description = description;
 		this.date = LocalDate.now();
 		this.category = category;
