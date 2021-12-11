@@ -16,6 +16,7 @@ public class Transaction {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	private Boolean transaction;
 	private String description;
 	private LocalDate date;
 	@OneToOne(cascade = CascadeType.ALL)
@@ -26,8 +27,9 @@ public class Transaction {
 	private String obs;
 	
 	
-	public Transaction(String description, Category category, String type, BigDecimal value,
+	public Transaction(Boolean transaction, String description, Category category, String type, BigDecimal value,
 			String obs) {
+		this.transaction = transaction;
 		this.description = description;
 		this.date = LocalDate.now();
 		this.category = category;
@@ -38,6 +40,10 @@ public class Transaction {
 	
 	public Transaction() {}
 	
+	public Boolean getTransaction() {
+		return transaction;
+	}
+
 	public Integer getId() {
 		return id;
 	}
