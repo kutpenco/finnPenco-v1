@@ -1,0 +1,38 @@
+version: '3.9'
+services:
+  db:
+    image: mysql
+    volumes:
+      - "dbdata:/var/lib/mysql"
+    container_name: DataBase
+    environment:
+       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+       - MYSQL_ROOT_PASSWORD=F1nnP3nc0
+       - MYSQL_DATABASE=finnPenco
+       - MYSQL_USER=finnPenco
+       - MYSQL_PASSWORD=F1nnP3nc0
+    healthcheck:
+      test: ["CMD", 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-p$$MYSQL_ROOT_PASSWORD' ]
+      start_period: 60s
+    ports:
+      - 3306:3306
+    networks: 
+      - sistema-network 
+  backend:
+    build: .
+    container_name: FINN-PENCO
+    restart: on-failure    
+    ports:
+      - 8080:8080
+    environment: 
+      - DATABASE_HOST=DataBase  
+      - DATABASE_USER=finnPenco
+      - DATABASE_NAME=finnPenco
+      - DATABASE_PORT=3306
+    networks:
+      - sistema-network
+networks:
+  sistema-network:
+    driver: bridge
+volumes:
+  dbdata: 
