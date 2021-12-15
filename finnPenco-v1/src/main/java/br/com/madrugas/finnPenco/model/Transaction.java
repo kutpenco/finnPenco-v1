@@ -65,7 +65,35 @@ public class Transaction {
 	public String getObs() {
 		return obs;
 	}
-	
-	
-	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setTransaction(Boolean transaction) {
+		this.transaction = transaction;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void setValue(BigDecimal value) {
+		this.value = value;
+	}
+
+	public void setObs(String obs) {
+		this.obs = obs;
+	}
 }

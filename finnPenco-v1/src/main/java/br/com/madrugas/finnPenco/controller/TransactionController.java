@@ -26,30 +26,30 @@ public class TransactionController {
 		this.transactionService = transactionService;
 	}
 	
-	@PostMapping
-	public ResponseEntity<TransactionView> insertTransaction(@RequestBody TransactionDto transactionDto,
-			UriComponentsBuilder uriBuilder) {
-		Transaction transaction = transactionService.insertTransaction(transactionDto);
-		TransactionView transactionView = new TransactionView(transaction.getId(), transaction.getName(), transaction.getMaxSpending());
-		return ResponseEntity.created(uriBuilder.path("transaction/{id}").buildAndExpand(transactionView.getId()).toUri()).build();
-	}
-
-	@GetMapping("/{id}")
-	public ResponseEntity<TransactionView> searchById(@PathVariable int id) {
-		Transaction transaction = transactionService.findById(id);
-		return ResponseEntity.ok(new TransactionView(transaction.getId(), transaction.getName(), transaction.getMaxSpending()));
-	}
+//	@PostMapping
+//	public ResponseEntity<TransactionView> insertTransaction(@RequestBody TransactionDto transactionDto,
+//			UriComponentsBuilder uriBuilder) {
+//		Transaction transaction = transactionService.insertTransaction(transactionDto);
+//		TransactionView transactionView = new TransactionView(transaction.getId(), transaction.getName(), transaction.getMaxSpending());
+//		return ResponseEntity.created(uriBuilder.path("transaction/{id}").buildAndExpand(transactionView.getId()).toUri()).build();
+//	}
+//
+//	@GetMapping("/{id}")
+//	public ResponseEntity<TransactionView> searchById(@PathVariable int id) {
+//		Transaction transaction = transactionService.findById(id);
+//		return ResponseEntity.ok(new TransactionView(transaction.getId(), transaction.getName(), transaction.getMaxSpending()));
+//	}
 	
 	@GetMapping
 	public ResponseEntity<?> searchAll() {
 		return ResponseEntity.ok(transactionService.findAll());
 	}
 	
-	@PutMapping("/{id}")
-	public ResponseEntity<TransactionView> updateTransaction(@PathVariable int id, @RequestBody TransactionDto transactionDto) {
-		Transaction transaction = transactionService.updateTransaction(id, transactionDto);
-		return ResponseEntity.ok(new TransactionView(transaction.getId(), transaction.getName(), transaction.getMaxSpending()));
-	}
+//	@PutMapping("/{id}")
+//	public ResponseEntity<TransactionView> updateTransaction(@PathVariable int id, @RequestBody TransactionDto transactionDto) {
+//		Transaction transaction = transactionService.updateTransaction(id, transactionDto);
+//		return ResponseEntity.ok(new TransactionView(transaction.getId(), transaction.getName(), transaction.getMaxSpending()));
+//	}
 
 	@DeleteMapping("/{id}")
 	public void deleteTransaction(@PathVariable int id) {

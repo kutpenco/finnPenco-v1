@@ -10,6 +10,6 @@ import br.com.madrugas.finnPenco.model.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer>{
 
-	Optional<Category> findOne(String name);
+	//Optional<Category> findOne(String name);
 
 }

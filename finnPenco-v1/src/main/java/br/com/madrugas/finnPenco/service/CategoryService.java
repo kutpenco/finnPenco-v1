@@ -28,10 +28,10 @@ public class CategoryService {
 		return categoryRepository.findAll();
 	}
 	
-	public Category findOne(String name) {
-		return categoryRepository.findOne(name)
-				.orElseThrow(() -> new EntityNotFoundException("Categoria  #{name} não encontrado"));
-	}
+	//public Category findOne(String name) {
+	//	return categoryRepository.findOne(name)
+	//			.orElseThrow(() -> new EntityNotFoundException("Categoria  #{name} não encontrado"));
+	//}
 	
 	public Category insertCategory(CategoryDto categoryDto) {
 		return categoryRepository.save(categoryDto.toCategory());
